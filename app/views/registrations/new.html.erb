@@ -1,0 +1,7 @@
+<h1 class="text-3xl">Sign Up</h1>
+
+<%= form_with model: @user do |form| %>
+    <%= form.text_field :email %>
+    <%= form.text_field :password %>
+<% end %>
+<%= @user %>
