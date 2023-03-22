@@ -1,4 +1,6 @@
 <h1>Hello there</h1>
 <% if @user %>
     Logged in as: <%= @user.email %>
+
+    <%= button_to "Logout", logout_path, method: :delete, class: "py-2 px-8 bg-blue-600 hover:bg-blue-300 rounded-xl text-white" %>    
 <% end %>
