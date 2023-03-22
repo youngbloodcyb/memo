@@ -1,6 +1,6 @@
 <h1 class="text-3xl">Sign Up</h1>
 
-<%= form_with model: @user, url: sign_up_url, class: "flex flex-col", data: { turbo: false } do |form| %>
+<%= form_with model: @user, url: sign_up_path, class: "flex flex-col", data: { turbo: false } do |form| %>
     <% if @user.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -29,4 +29,3 @@
         <%= form.submit class: "py-4 px-6 bg-blue-500 w-max rounded-xl cursor-pointer hover:bg-blue-300" %>
     </div>
 <% end %>
-<%= @user %>
