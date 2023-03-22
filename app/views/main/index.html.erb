@@ -1,4 +1,6 @@
-<h1>Hello there</h1>
+<h1 class="text-3xl">Hello there</h1>
+<p class="font-mono">This is a demo app. I'm not really sure what it is yet...</p>
+<%= link_to "Sign Up", sign_up_path, class: "py-2 px-8 bg-blue-600 hover:bg-blue-300 rounded-xl text-white w-max" %>
 <% if @user %>
     Logged in as: <%= @user.email %>
 
