@@ -1,7 +1,32 @@
 <h1 class="text-3xl">Sign Up</h1>
 
-<%= form_with model: @user do |form| %>
-    <%= form.text_field :email %>
-    <%= form.text_field :password %>
+<%= form_with model: @user, url: sign_up_url, class: "flex flex-col", data: { turbo: false } do |form| %>
+    <% if @user.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="py-2 w">
+        <%= form.label :email, class: "block" %>
+        <%= form.text_field :email, class: "w-72 rounded-lg", placeholder: "user@gmail.com" %>
+    </div>
+    <div class="py-2">
+        <%= form.label :password, class: "block" %>
+        <%= form.password_field :password, class: "w-72 rounded-lg", placeholder: "enter password" %>
+    </div>
+    <div class="py-2">
+        <%= form.label :password_confirmation, class: "block" %>    
+        <%= form.password_field :password_confirmation, class: "w-72 rounded-lg", placeholder: "confirm password" %>
+    </div>
+    <div class="my-4">
+        <%= form.submit class: "py-4 px-6 bg-blue-500 w-max rounded-xl cursor-pointer hover:bg-blue-300" %>
+    </div>
 <% end %>
 <%= @user %>
